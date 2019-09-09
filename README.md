@@ -1,6 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Steps For using Redux Saga :
+1.  go to action/index.js : define your action 
+2.  Go to reducers/index.js : put a return statement for your action type
+3.  Create your component : and do your thing 
+        mapStateToProps : This is Used when you are using state variables in your current component. (when ever you want to show state data)
+        mapDispatchToProps : This is used when you want to dispatch your data (send your data to centralized state)
+        Connect : it create the brifge between your component and centralized store. 
+            connect(mapStateToProps,mapDispatchToProps)(your component name);  // if you want to send the data and fetch n use something
+            connect(null,mapDispatchToProps)(your component name); // if you want to send the data only
+            connect(mapStateToProps,null)(your component name); // if you want to fetch and use the data only
+        To access the centralized state variable in your component you can use this.props
+4. Go to sagas/index.js : if you wanna make any api call or operation you can do it here. 
+                            To access the state variable here you can use select statement.
+                            let text = yield select((state)=> state.text); like this
+                            You will be using yield in here. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator's caller. its kind of like async await. It waits untill it gets the result.
 
-## Available Scripts
+    To access the centralized 
 
 In the project directory, you can run:
 
